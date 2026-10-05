@@ -1,0 +1,12 @@
+{
+  "name": "stash-shorts",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Stash UI plugin: full-screen portrait feed of scenes to swipe through",
+  "license": "MIT",
+  "scripts": {
+    "test": "sh scripts/test.sh",
+    "demo": "node demo/server.js",
+    "check": "node scripts/check.mjs"
+  }
+}

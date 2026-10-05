@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Stash Shorts app icon: a portrait frame with a play sign, full bleed black so it also works as a
+       maskable icon (the frame stays inside the safe circle of radius 205) -->
+  <rect width="512" height="512" fill="#000"/>
+  <rect x="181" y="121" width="150" height="270" rx="30" fill="none" stroke="#f5a623" stroke-width="22"/>
+  <path d="M232 206 L304 256 L232 306 Z" fill="#fff" stroke="#fff" stroke-width="14" stroke-linejoin="round"/>
+</svg>

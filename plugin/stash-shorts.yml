@@ -1,0 +1,110 @@
+name: Stash Shorts
+description: >-
+  Full-screen feed of your portrait scenes: one video per screen, swipe, scroll or use the arrow keys
+  for the next one. Adds a "Shorts" entry to the navbar. No external requests, no dependencies.
+version: 0.2.0
+ui:
+  javascript:
+    - stash-shorts-core.js
+    - stash-shorts.js
+  css:
+    - stash-shorts.css
+  # Served at /plugin/stash-shorts/assets/locales/<code>.json
+  assets:
+    /locales: locales
+    # the manifest (one per language) and icons for "Add to Home Screen" while the Shorts page is open
+    /app: app
+# Also editable in the plugin's own dialog (sliders button on the Shorts page). Keys and types must match
+# the SETTINGS table in stash-shorts-core.js. URL parameters override the feed settings for one view.
+settings:
+  order:
+    displayName: Order
+    description: "forYou (default, ordered in the browser from ratings, orgasm counts, plays and favorites), random, date (newest first by the scene's date), newest (newest in Stash) or mostViewed."
+    type: STRING
+  favoritesOnly:
+    displayName: Only scenes with a favorite performer
+    type: BOOLEAN
+  subscribedOnly:
+    displayName: Only performers I subscribe to
+    description: "Scenes with a performer subscribed to in Shorts (their custom field shorts_subscribed)."
+    type: BOOLEAN
+  minRating:
+    displayName: Minimum rating in stars
+    description: 0-5; 0 = any.
+    type: NUMBER
+  unseenOnly:
+    displayName: Only unwatched scenes
+    description: Scenes with a play count of 0.
+    type: BOOLEAN
+  tags:
+    displayName: Tags (IDs)
+    description: Comma separated tag IDs; scenes with any of them. Easiest set in the dialog.
+    type: STRING
+  studios:
+    displayName: Studios (IDs)
+    description: Comma separated studio IDs. Easiest set in the dialog.
+    type: STRING
+  performers:
+    displayName: Performers (IDs)
+    description: Comma separated performer IDs. Easiest set in the dialog.
+    type: STRING
+  allowLandscape:
+    displayName: Also landscape scenes
+    description: "Off by default: portrait scenes only. On: landscape and square scenes too, across the full width."
+    type: BOOLEAN
+  disableMarkers:
+    displayName: No scene markers as clips
+    description: "Off by default: each scene marker is a clip of its own in the feed, from its time up to its end or 30 seconds."
+    type: BOOLEAN
+  disableGalleries:
+    displayName: No galleries in the feed
+    description: "Off by default: galleries with pictures in the feed's format are posts of their own, their pictures to flip through sideways."
+    type: BOOLEAN
+  autoAdvance:
+    displayName: Next clip at the end
+    description: "Off by default: clips loop. On: at the end of a clip the next one follows; the last one starts over."
+    type: BOOLEAN
+  disableDoubleTap:
+    displayName: No double tap
+    description: "Off by default: a double tap on the video adds an orgasm, and a single tap toggles the sound after a short moment. On: a tap toggles the sound at once."
+    type: BOOLEAN
+  disableWakeLock:
+    displayName: Let the screen go dark
+    description: "Off by default: the screen stays on while a video plays (where the browser allows it). On: the screen dims as usual."
+    type: BOOLEAN
+  disableSplash:
+    displayName: No splash
+    description: "Off by default: white drops rise over the video when an orgasm is added. On: no animation (with reduced motion the system setting already makes it a short fade)."
+    type: BOOLEAN
+  splashOnSubscribe:
+    displayName: Splash also when subscribing
+    description: "Off by default. On: the drops rise from the Subscribe button too."
+    type: BOOLEAN
+  quickActions:
+    displayName: Quick actions
+    description: "Off by default. On: a row above the caption with the rating, an orgasm and the quick tags, each one tap."
+    type: BOOLEAN
+  quickTags:
+    displayName: Quick tags (IDs)
+    description: Up to 5 comma separated tag IDs, each a toggle on the scene in the quick actions. Easiest set in the dialog.
+    type: STRING
+  disableRelated:
+    displayName: No side previews
+    description: "Off by default: up to three related performers (who appear together with the scene's performers, or in its studio) above the buttons on the right; a tap opens their channel."
+    type: BOOLEAN
+  disableSummary:
+    displayName: No session summary
+    description: "Off by default: leaving the page by its back button first shows what the visit did (time, clips, orgasms, subscriptions). Nothing of it goes to Stash."
+    type: BOOLEAN
+  disablePlayCount:
+    displayName: Do not count as watched
+    description: "Off by default: a scene gets a play once per visit of the page after the seconds below."
+    type: BOOLEAN
+  playCountAfter:
+    displayName: Count as watched after seconds
+    description: 1-60; 0 or empty = default 5.
+    type: NUMBER
+  galleryImageSeconds:
+    displayName: Seconds per picture
+    description: "With Next clip at the end: how long each picture of a gallery is shown, 2-15; 0 or empty = default 4."
+    type: NUMBER

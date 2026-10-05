@@ -1,0 +1,7 @@
+version: 2
+updates:
+  # No npm dependencies (the plugin and its tools use Node's built-ins only); only the workflow actions.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

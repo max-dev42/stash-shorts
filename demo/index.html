@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Shorts (demo)</title>
+  <base href="/">
+  <link rel="stylesheet" href="plugin-files/stash-shorts.css">
+  <style>body { margin: 0; background: #202b33; }</style>
+</head>
+<body>
+  <!-- The demo runs the plugin page without Stash's UI; in Stash the page covers the navbar the same way. -->
+  <div id="root" class="sst-page"></div>
+  <script src="harness.js"></script>
+  <script src="plugin-files/stash-shorts-core.js"></script>
+  <script src="plugin-files/stash-shorts.js"></script>
+  <script>
+    // ?lang=en|de|fr|es|it picks the language (in Stash it follows the interface language)
+    var lang = new URLSearchParams(location.search).get("lang") || "en";
+    window.StashShortsMount(document.getElementById("root"), {
+      locale: lang,
+      // the page's own addresses (the performer channel) go into the browser history as in Stash;
+      // links to Stash's other pages only show up in the console
+      history: {
+        length: 1,
+        push: function (to) {
+          if (/^\/shorts(\?|$)/.test(to)) history.pushState(null, "", to);
+          else console.log("demo: navigate to " + to);
+        },
+        replace: function (to) { history.replaceState(null, "", to); },
+        goBack: function () { history.back(); },
+        go: function (n) { history.go(n); },
+      },
+    });
+  </script>
+</body>
+</html>
